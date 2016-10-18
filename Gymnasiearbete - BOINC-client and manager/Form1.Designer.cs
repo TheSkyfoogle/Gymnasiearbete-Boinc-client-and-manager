@@ -51,12 +51,12 @@
             this.tasksGroupBox = new System.Windows.Forms.GroupBox();
             this.transfersGroupBox = new System.Windows.Forms.GroupBox();
             this.eventHistoryGroupBox = new System.Windows.Forms.GroupBox();
-            this.dedicatedResourcesGroupBox = new System.Windows.Forms.GroupBox();
-            this.creditsAcquiredGroupBox = new System.Windows.Forms.GroupBox();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.eventHistoryTextBox = new System.Windows.Forms.TextBox();
+            this.dedicatedResourcesGroupBox = new System.Windows.Forms.GroupBox();
             this.dedicatedResourcesTextBox = new System.Windows.Forms.TextBox();
+            this.creditsAcquiredGroupBox = new System.Windows.Forms.GroupBox();
             this.creditsAcquiredTextBox = new System.Windows.Forms.TextBox();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.menuStrip.SuspendLayout();
             this.projectRunningGroupBox.SuspendLayout();
             this.taskCommandsGroupBox.SuspendLayout();
@@ -268,6 +268,15 @@
             this.eventHistoryGroupBox.TabStop = false;
             this.eventHistoryGroupBox.Text = "Event history";
             // 
+            // eventHistoryTextBox
+            // 
+            this.eventHistoryTextBox.Location = new System.Drawing.Point(7, 20);
+            this.eventHistoryTextBox.Multiline = true;
+            this.eventHistoryTextBox.Name = "eventHistoryTextBox";
+            this.eventHistoryTextBox.Size = new System.Drawing.Size(194, 93);
+            this.eventHistoryTextBox.TabIndex = 0;
+            this.eventHistoryTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // dedicatedResourcesGroupBox
             // 
             this.dedicatedResourcesGroupBox.Controls.Add(this.dedicatedResourcesTextBox);
@@ -277,6 +286,15 @@
             this.dedicatedResourcesGroupBox.TabIndex = 9;
             this.dedicatedResourcesGroupBox.TabStop = false;
             this.dedicatedResourcesGroupBox.Text = "Dedicated resources";
+            // 
+            // dedicatedResourcesTextBox
+            // 
+            this.dedicatedResourcesTextBox.Location = new System.Drawing.Point(7, 19);
+            this.dedicatedResourcesTextBox.Multiline = true;
+            this.dedicatedResourcesTextBox.Name = "dedicatedResourcesTextBox";
+            this.dedicatedResourcesTextBox.Size = new System.Drawing.Size(194, 50);
+            this.dedicatedResourcesTextBox.TabIndex = 1;
+            this.dedicatedResourcesTextBox.TextChanged += new System.EventHandler(this.dedicatedResourcesTextBox_TextChanged);
             // 
             // creditsAcquiredGroupBox
             // 
@@ -288,32 +306,6 @@
             this.creditsAcquiredGroupBox.TabStop = false;
             this.creditsAcquiredGroupBox.Text = "Credits acquired";
             // 
-            // statusStrip
-            // 
-            this.statusStrip.Location = new System.Drawing.Point(0, 458);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1020, 22);
-            this.statusStrip.TabIndex = 11;
-            this.statusStrip.Text = "Status strip";
-            // 
-            // eventHistoryTextBox
-            // 
-            this.eventHistoryTextBox.Location = new System.Drawing.Point(7, 20);
-            this.eventHistoryTextBox.Multiline = true;
-            this.eventHistoryTextBox.Name = "eventHistoryTextBox";
-            this.eventHistoryTextBox.Size = new System.Drawing.Size(194, 93);
-            this.eventHistoryTextBox.TabIndex = 0;
-            this.eventHistoryTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // dedicatedResourcesTextBox
-            // 
-            this.dedicatedResourcesTextBox.Location = new System.Drawing.Point(7, 19);
-            this.dedicatedResourcesTextBox.Multiline = true;
-            this.dedicatedResourcesTextBox.Name = "dedicatedResourcesTextBox";
-            this.dedicatedResourcesTextBox.Size = new System.Drawing.Size(194, 50);
-            this.dedicatedResourcesTextBox.TabIndex = 1;
-            this.dedicatedResourcesTextBox.TextChanged += new System.EventHandler(this.dedicatedResourcesTextBox_TextChanged);
-            // 
             // creditsAcquiredTextBox
             // 
             this.creditsAcquiredTextBox.Location = new System.Drawing.Point(7, 19);
@@ -321,6 +313,14 @@
             this.creditsAcquiredTextBox.Name = "creditsAcquiredTextBox";
             this.creditsAcquiredTextBox.Size = new System.Drawing.Size(194, 50);
             this.creditsAcquiredTextBox.TabIndex = 2;
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Location = new System.Drawing.Point(0, 458);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1020, 22);
+            this.statusStrip.TabIndex = 11;
+            this.statusStrip.Text = "Status strip";
             // 
             // oliversBoincManagerForm
             // 
@@ -341,6 +341,8 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "oliversBoincManagerForm";
             this.Text = "Oliver\'s BOINC-manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.oliversBoincManagerForm_FormClosing);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.oliversBoincManagerForm_Paint);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.projectRunningGroupBox.ResumeLayout(false);

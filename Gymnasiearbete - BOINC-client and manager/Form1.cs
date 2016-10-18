@@ -36,5 +36,28 @@ namespace Gymnasiearbete___BOINC_client_and_manager
         {
 
         }
+
+        private void oliversBoincManagerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to quit BOINC manager? \nIf there are any active transfers currently taking place then BOINC manager will wait for those transfers to finish and only then close.", "Exit?", MessageBoxButtons.YesNo);
+
+            if(dialog == DialogResult.Yes)
+            {
+                // here goes line of code to quit the program after all transfers have been completed
+                // all transfers should complete and only then should the program close
+
+                Application.ExitThread();
+            }
+            else
+            {
+                e.Cancel = true;
+                
+            }
+        }
+
+        private void oliversBoincManagerForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
